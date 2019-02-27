@@ -1,0 +1,24 @@
+<% if @cart.empty? %>
+<p>Please at least buy one item from me</p>
+<% end %>
+
+<div id="itemsContainer">
+    
+    <table id="customers">
+        <% total = 0 %>
+        
+        <% @cart.each do |id, quantity| %>
+        <% item = Item.find_by_id(id) %>
+        <tr>
+        <td class="image" ><%= link_to item.title, item %></td>
+        <td><%= item.price %></td>
+        <td><%= quantity %></td>
+        </tr>
+        <% end %>
+        
+    </table>
+    
+    
+    
+    
+</div>
