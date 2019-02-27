@@ -10,9 +10,13 @@ Rails.application.routes.draw do
  get '/login' => 'user#login' 
  get '/logout' => 'user#logout' 
  
+ get '/cart/clear' => 'cart#clearCart'
  
  get '/cart/:id', to: 'cart#add' # the , to: is the same as th =>
  
+ get '/cart/remove/:id' => 'cart#remove'
+ 
+ get '/cart' => 'cart#index'
  # get 'static_pages/home'
  # get 'static_pages/help'
  # get 'static_pages/about'

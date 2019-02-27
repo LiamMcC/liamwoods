@@ -20,6 +20,7 @@
         <li><%= link_to "Products", "/items" %></li>
         <li><%= link_to "Help", help_path %></li>
         <li><%= link_to "About", about_path %></li>
+        <li><%= link_to "View Cart", "/cart" %></li>
         
         <% if session[:login] == 1 %>
                <li><%= link_to "Log Out", logout_path %></li>
@@ -38,7 +39,7 @@
     <footer class="foot">
       
       <h1>Look at the page footer</h1>
-      
+      <a href="/cart/clear" class="button">Clear Cart</a>
     </footer>
     
     

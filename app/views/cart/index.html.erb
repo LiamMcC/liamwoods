@@ -8,14 +8,26 @@
         <% total = 0 %>
         
         <% @cart.each do |id, quantity| %>
-        <% item = Item.find_by_id(id) %>
+            <% item = Item.find_by_id(id) %>
         <tr>
-        <td class="image" ><%= link_to item.title, item %></td>
-        <td><%= item.price %></td>
-        <td><%= quantity %></td>
+        <td class="image" >
+        <%= link_to (image_tag item.image_url, :style =>"height:35px"), item %>
+        </td>
+        <td class="quantity"><%= item.title %></td>
+        <td class="price"><%= number_to_currency(item.price, :unit=>"€") %></td>
+        <td class="quantity"><%= quantity %></td>
+        <td class="quantity"><a href="/cart/remove/<%= item.id %>" class="button">Remove</a></td>
+       
+         <td class="price"><%= number_to_currency(quantity * item.price, :unit=>"€") %></td>
         </tr>
+        
+        <% total += quantity * item.price %>
         <% end %>
         
+         
+        
+        <tr>Grand total: <%= number_to_currency(total, :unit=>"€") %></tr>
+        <tr><a href="/cart/clear" class="button">Clear Cart</a></tr>
     </table>
     
     

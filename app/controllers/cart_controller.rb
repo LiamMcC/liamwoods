@@ -8,7 +8,6 @@ class CartController < ApplicationController
     id = params[:id]
     # if the cart exists already use it if not make a new one
     if session[:cart] then
-      
       cart = session[:cart]
     else
       session[:cart] = {}
@@ -16,24 +15,31 @@ class CartController < ApplicationController
     end
     
     # If the product is in the cart then increase the existing quantity by 1
-    
-    if cart[id] then
-    
-    cart[id] = cart[id] + 1 # this is the actual increase quantity part
+     if cart[id] then
+     cart[id] = cart[id] + 1 # this is the actual increase quantity part
   else
-    
-    cart[id] = 1
-    
-    end
+     cart[id] = 1
+  end
+  redirect_to :action => :index
+end 
+  
+  
+  ######## Clear Cart ###############
+  def clearCart
+    # This sets the cart session to not exist
+    session[:cart] = nil
+    redirect_to :action => :index
+  end  
+  
+  ### Start of remove from cart ########
+  
+  def remove
+    id = params[:id]
+    cart = session[:cart]
+    cart.delete id
     
     redirect_to :action => :index
-    
-  end 
-  
-  
-  
-  
-  
+  end
   
   
   
