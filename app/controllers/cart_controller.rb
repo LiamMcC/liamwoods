@@ -1,5 +1,6 @@
 class CartController < ApplicationController
   ######### start of add to cart logic ######### 
+  before_action :authenticate_user!
   
   def add
     # we need the id of the product to be added
@@ -56,4 +57,19 @@ end
     end  
     
   end
+  
+  def decrease
+    id = params[:id]
+    cart = session[:cart]
+    
+    if cart[id] == 1 then
+      cart.delete id
+    else
+    cart[id] = cart[id] - 1
+    end
+    redirect_to :action => :index
+    
+  end
+  
+  
 end

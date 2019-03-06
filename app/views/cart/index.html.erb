@@ -15,9 +15,9 @@
         </td>
         <td class="quantity"><%= item.title %></td>
         <td class="price"><%= number_to_currency(item.price, :unit=>"€") %></td>
-        <td class="quantity"><%= quantity %></td>
-        <td class="quantity"><a href="/cart/remove/<%= item.id %>" class="button">Remove</a></td>
-       
+        <td class="price"><%= quantity %></td>
+        <td class="price"><a href="/cart/remove/<%= item.id %>" class="button">Remove</a></td>
+       <td class="price"><a href="/cart/decrease/<%= item.id %>" class="button">Decrease</a></td>
          <td class="price"><%= number_to_currency(quantity * item.price, :unit=>"€") %></td>
         </tr>
         
@@ -27,10 +27,10 @@
          
         
         <tr>Grand total: <%= number_to_currency(total, :unit=>"€") %></tr>
-        <tr><a href="/cart/clear" class="button">Clear Cart</a></tr>
+      
     </table>
     
-    
-    
+     <a href="/cart/clear" class="button">Clear Cart</a>
+    <a href="/items" class="button">Continue Shopping</a>
     
 </div>
