@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+<div class="mainCont">
+<p>
+  <strong>Order date:</strong>
+  <%= @order.order_date %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @order.user.email %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @order.status %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
+</div>
+<br><br>
+
+<div class="mainCont">
+  <h1>Items in this order are</h1>
+  <table id="customers">
+    <% @orderitems.each do |orderitem| %>
+    <tr>
+      <td>
+      <%= orderitem.order_id %>
+      </td>
+      <td>
+      <%= orderitem.id %>
+      </td>
+      <td><%= orderitem.title %></td>
+      <td><%= orderitem.quantity %></td>
+      </tr>
+    
+    <% end %>
+    
+    
+  </table>
+  </div>
