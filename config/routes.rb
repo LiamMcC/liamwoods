@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   
   
   
-  
+  post '/search' => 'items#search'
   
   
   
@@ -48,6 +48,10 @@ Rails.application.routes.draw do
  get '/cart/:id', to: 'cart#add' # the , to: is the same as th =>
  
  get '/cart/remove/:id' => 'cart#remove'
+ 
+ get '/paid/:id' => 'static_pages#paid'
+ 
+ 
  
  get '/cart/decrease/:id' => 'cart#decrease'
  

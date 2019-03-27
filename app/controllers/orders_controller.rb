@@ -1,11 +1,19 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+# before_action :authenticate_user! #not let people get to orders unless the log in
+
 
   # GET /orders
   # GET /orders.json
   def index
+    
+    if user_signed_in? # use this to check user is signed in
     @user = User.find(current_user.id)
     @orders = @user.orders.all
+    
+  else 
+    redirect_to :root
+  end 
   end
 
   # GET /orders/1

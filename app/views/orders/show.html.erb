@@ -15,6 +15,11 @@
   <%= @order.status %>
 </p>
 
+<p>
+  <strong>Order Id:</strong>
+  <%= @order.id %>
+</p>
+
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>
 </div>
@@ -24,6 +29,7 @@
   <h1>Items in this order are</h1>
   <table id="customers">
     <% @orderitems.each do |orderitem| %>
+     <% @total = 0 %>
     <tr>
       <td>
       <%= orderitem.order_id %>
@@ -33,10 +39,27 @@
       </td>
       <td><%= orderitem.title %></td>
       <td><%= orderitem.quantity %></td>
+      <td><%= orderitem.price %></td>
+      <% linetotal =(orderitem.quantity * orderitem.price) %>
+    <% @total += linetotal %>
+     <td>Total price: <%= @total %></td>
       </tr>
+    
+
     
     <% end %>
     
-    
+          <tr>
+        <% shipping = 25 %>
+        <% @grandtotal = shipping + @total %>
+        <td>Shipping &euro;25</td>
+        <td>Your Total payable today is: &euro;<%= @grandtotal %></td>
+        </tr>
   </table>
   </div>
+  
+
+  
+  <div class="mainCont">
+    <a href="/paid/<%= @order.id %>" class="button">Pay For Me!</a>
+    </div>
