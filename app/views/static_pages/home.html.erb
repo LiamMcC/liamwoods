@@ -1,17 +1,14 @@
 <div class="mainCont">
-    <%=image_tag("golfswing.jpg", :class=> "welcomeIm") %>
-    
     <h1>Home Page</h1>
-    
-    <p>Welcome to the new golf home page!</p>
-    
-    <br>
-    
-    <p>Later we will fill this with dynamic content......</p>
-    
-    
+    <%=image_tag("golfswing.jpg", :class=> "welcomeIm") %>
 </div>
 
+<br><br>
+<%= render 'layouts/popularproducts' %>
+
+<br><br>
+
+<%= render 'layouts/categories' %>
 
 <br><br>
 

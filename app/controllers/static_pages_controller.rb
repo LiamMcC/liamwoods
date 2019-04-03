@@ -1,8 +1,16 @@
 class StaticPagesController < ApplicationController
   def home
+     @categories = Golfcat.all
+     @items = Orderitem.all
+  end
+
+  def category
+    xxx = params[:title]
+    @items = Item.where("category like ?", xxx)
   end
 
   def help
+   
   end
 
   def about

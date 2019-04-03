@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :golfcats
+  resources :categories
   get 'orderitems/index'
   get 'orderitems/show'
   get 'orderitems/new'
@@ -52,6 +54,7 @@ Rails.application.routes.draw do
  get '/paid/:id' => 'static_pages#paid'
  
  
+ get '/category/:title' => 'static_pages#category'
  
  get '/cart/decrease/:id' => 'cart#decrease'
  

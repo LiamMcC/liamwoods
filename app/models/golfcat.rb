@@ -1,0 +1,2 @@
+class Golfcat < ApplicationRecord
+end

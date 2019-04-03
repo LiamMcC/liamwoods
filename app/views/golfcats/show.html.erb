@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @golfcat.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @golfcat.description %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @golfcat.image %>
+</p>
+
+<%= link_to 'Edit', edit_golfcat_path(@golfcat) %> |
+<%= link_to 'Back', golfcats_path %>
