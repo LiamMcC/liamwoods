@@ -88,7 +88,7 @@ end
       
       item = Item.find_by_id(id)
       
-      @orderitem = @order.orderitems.build(:item_id => item.id, :title => item.title, :description => item.image_url, :quantity => quantity, :price => item.price)
+      @orderitem = @order.orderitems.build(:item_id => item.id, :title => item.title, :description => item.image_url, :quantity => quantity, :price => item.price, :image_url => item.image_url)
       @orderitem.save
     end
     
