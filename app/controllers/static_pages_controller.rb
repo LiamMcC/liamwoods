@@ -1,8 +1,41 @@
 class StaticPagesController < ApplicationController
   def home
      @categories = Golfcat.all
-     @items = Orderitem.all
+     
+     
+     @items = Orderitem.limit(3).order(id: :desc)
+     
+  @itemx = Item.all
+     
+     
   end
+  
+  
+  def allusers
+  #  if current_user.admin? 
+    
+    @users = User.all
+    
+ # else 
+ #   redirect_to "/"
+    
+ #  end 
+  end
+  
+  def upgrade 
+    @user = User.find_by(id: params[:id])
+    @user.update_attribute(:admin, true)
+    redirect_to "/"
+  end
+  
+   def downgrade 
+    @user = User.find_by(id: params[:id])
+    @user.update_attribute(:admin, true)
+    redirect_to "/"
+  end
+  
+  
+  
 
   def category
     xxx = params[:title]

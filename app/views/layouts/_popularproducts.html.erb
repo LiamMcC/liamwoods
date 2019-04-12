@@ -8,7 +8,8 @@
       <% @items.limit(3).order(id: :desc).each do |item| %>
       <div class="itemhols">
        <h1><%= item.title %></h1>
-       
+       <h1><%= item.item_id %></h1>
+       <a href="/items/<%= item.item_id %>" class="button">Add Me To Cart</a>
        
        
        <p>Price <%= number_to_currency(item.price, :unit => "€") %>

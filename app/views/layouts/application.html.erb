@@ -55,6 +55,15 @@
       
       <h1>Look at the page footer</h1>
       <a href="/cart/clear" class="button">Clear Cart</a>
+      <% if user_signed_in? %>
+       <% if current_user.admin?  %>
+      
+      <a href="/showuser" class="button">Show Users</a>
+      <% end %>
+      <% end %>
+      
+      
+      
       <%= link_to 'New Golfcat', new_golfcat_path, :class=>"button" %>
     </footer>
     
